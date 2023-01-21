@@ -23,4 +23,11 @@ const db = mysql.createConnection(
 
     // APPLICATION QUESTIONS
 
-    
+    const question = [
+        {
+            type: 'list',
+            name: 'choice',
+            message: "Let's Get Started: ",
+            choices: ['View All Employees', 'Add Employee', 'Update Employee Role', 'View All Roles', 'Add Role', 'View All Departments', 'Add Department']
+        }
+    ]
