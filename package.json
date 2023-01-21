@@ -1,0 +1,24 @@
+{
+  "name": "sql-employee-tracker",
+  "version": "1.0.0",
+  "description": "A command-line application to manage a company's database including Node.js, Inquirer, and MySQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samocain93/sql-employee-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samocain93/sql-employee-tracker/issues"
+  },
+  "homepage": "https://github.com/samocain93/sql-employee-tracker#readme",
+  "dependencies": {
+    "inquirer": "^9.1.4",
+    "nodemon": "^2.0.20"
+  }
+}
