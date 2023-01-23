@@ -1,15 +1,14 @@
-// REQUIRE VARIABLES // 
+// ----- REQUIRE VARIABLES ----- // 
 
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 const mysql = require('mysql2');
 
-// CREATE CONNECTION TO DATABASE
+// ----- CREATE CONNECTION TO DATABASE ----- //
 
 const db = mysql.createConnection(
     {
         host: '127.0.0.1',
-
         user: 'root',
         password: 'GoNole$0533',
         database: 'employees_db'
@@ -23,7 +22,11 @@ const db = mysql.createConnection(
     })
 
 
-    // APPLICATION QUESTIONS //
+// ----------- APPLICATION QUESTIONS -------------- //
+
+
+
+// INITIAL APP QUESTION // 
 
     const question = [
         {
@@ -34,7 +37,7 @@ const db = mysql.createConnection(
         }
     ];
 
-    // FUNCTION TO ADD DEPARTMENT // 
+    // ----- ADD DEPARTMENT QUESTION PROMPT ----- // 
 
     const addDepartmentQuestion = [
         {
@@ -45,7 +48,7 @@ const db = mysql.createConnection(
     ]
 
 
-    // START APP //
+    // ----- START APP FUNCTION ----- //
 
     function init() {
         inquirer.prompt(question).then((response) => {
@@ -57,20 +60,36 @@ const db = mysql.createConnection(
                 viewDepartments();
             } else if (response.choice === 'Add Department'){
                 addDepartment();
+            } else if (response.choice === 'Update Employee Role') {
+                updateEmployee();
+            } else if (response.choice === 'View All Roles') {
+                viewRoles();
+            } else if (response.choice === 'Add Role') {
+                addRole();
+            } else if (response.choice === 'Update Employee Manager') {
+                updateEmployeeManager();
+            } else if (response.choice === 'View Employees by Manager') {
+                viewEmployeesByManager();
+            } else if (response.choice === 'View Employees by Department') {
+                viewEmployeesByDepartment();
+            } else if (response.choice === 'View Total Utilized Budget') {
+                viewTotalUtilizedBudget();
             }
         })
     }
 
     
-
+// VIEW ALL DEPARTMENTS // 
 
     function viewDepartments() {
         db.query('SELECT * FROM department;', (err, data) => {
             console.table(data);
-            init()
+            init();
         })
-    }
+    };
 
+
+// ADD DEPARTMENT // 
 
     function addDepartment() {
         inquirer.prompt(addDepartmentQuestion).then((response) => {
@@ -79,4 +98,96 @@ const db = mysql.createConnection(
             })
         })
         
+    };
+
+
+
+// VIEW ALL EMPLOYEES
+
+    function viewEmployees() {
+
+
+
+    };
+
+// ADD EMPLOYEE //
+
+    function addEmployee() {
+        
+
+
+    };
+
+
+
+// UPDATE EMPLOYEE ROLE //
+
+    function updateEmployee() {
+
+
+
+    };
+
+
+// VIEW ALL ROLES //
+
+    function viewRoles() {
+
+
+
+    };
+
+
+
+
+
+// ADD ROLE // 
+
+    function addRole() {
+
+
+
     }
+
+
+
+// UPDATE EMPLOYEE MANAGER // 
+
+    function updateEmployeeManager() {
+
+
+
+    }
+
+
+// VIEW EMPLOYEES BY MANAGER // 
+
+    function viewEmployeesByManager() {
+
+    }
+
+
+
+// VIEW EMPLOYEES BY DEPARTMENT // 
+
+    function viewEmployeesByDepartment() {
+
+
+
+    }
+
+
+
+
+// VIEW TOTAL UTILIZED BUDGET // 
+
+    function viewTotalUtilizedBudget() {
+
+
+
+    }
+
+
+
+
+
