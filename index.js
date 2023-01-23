@@ -23,16 +23,18 @@ const db = mysql.createConnection(
     })
 
 
-    // APPLICATION QUESTIONS
+    // APPLICATION QUESTIONS //
 
     const question = [
         {
             type: 'list',
             name: 'choice',
-            message: "Let's Get Started: ",
+            message: "What would you like to do?",
             choices: ['View All Employees', 'Add Employee', 'Update Employee Role', 'View All Roles', 'Add Role', 'View All Departments', 'Add Department']
         }
     ];
+
+    // FUNCTION TO ADD DEPARTMENT // 
 
     const addDepartmentQuestion = [
         {
