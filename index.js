@@ -26,7 +26,7 @@ const db = mysql.createConnection(
 
 
 
-// INITIAL APP QUESTION // 
+// ----- INITIAL APP QUESTION ----- // 
 
     const question = [
         {
@@ -79,17 +79,18 @@ const db = mysql.createConnection(
     }
 
     
-// VIEW ALL DEPARTMENTS // 
+// ----- VIEW ALL DEPARTMENTS -----  // 
 
     function viewDepartments() {
         db.query('SELECT * FROM department;', (err, data) => {
+            if (err) throw err;
             console.table(data);
             init();
         })
     };
 
 
-// ADD DEPARTMENT // 
+// ----- ADD DEPARTMENT ----- // 
 
     function addDepartment() {
         inquirer.prompt(addDepartmentQuestion).then((response) => {
@@ -102,15 +103,19 @@ const db = mysql.createConnection(
 
 
 
-// VIEW ALL EMPLOYEES
+// ----- VIEW ALL EMPLOYEES ----- //
 
     function viewEmployees() {
-
-
+        db.query('SELECT * FROM employee;', (err, data) => {
+            if (err) throw err;
+            console.table(data);
+            init();
+        })
 
     };
 
-// ADD EMPLOYEE //
+
+//  ----- ADD EMPLOYEE -----  //
 
     function addEmployee() {
         
@@ -120,7 +125,7 @@ const db = mysql.createConnection(
 
 
 
-// UPDATE EMPLOYEE ROLE //
+// ----- UPDATE EMPLOYEE ROLE ----- //
 
     function updateEmployee() {
 
@@ -129,7 +134,7 @@ const db = mysql.createConnection(
     };
 
 
-// VIEW ALL ROLES //
+//  ----- VIEW ALL ROLES -----  //
 
     function viewRoles() {
 
@@ -141,7 +146,7 @@ const db = mysql.createConnection(
 
 
 
-// ADD ROLE // 
+// -----  ADD ROLE -----  // 
 
     function addRole() {
 
@@ -151,7 +156,7 @@ const db = mysql.createConnection(
 
 
 
-// UPDATE EMPLOYEE MANAGER // 
+// -----  UPDATE EMPLOYEE MANAGER -----  // 
 
     function updateEmployeeManager() {
 
@@ -160,7 +165,7 @@ const db = mysql.createConnection(
     }
 
 
-// VIEW EMPLOYEES BY MANAGER // 
+// -----  VIEW EMPLOYEES BY MANAGER -----  // 
 
     function viewEmployeesByManager() {
 
@@ -168,7 +173,7 @@ const db = mysql.createConnection(
 
 
 
-// VIEW EMPLOYEES BY DEPARTMENT // 
+// -----  VIEW EMPLOYEES BY DEPARTMENT -----  // 
 
     function viewEmployeesByDepartment() {
 
@@ -179,7 +184,7 @@ const db = mysql.createConnection(
 
 
 
-// VIEW TOTAL UTILIZED BUDGET // 
+// -----  VIEW TOTAL UTILIZED BUDGET -----  // 
 
     function viewTotalUtilizedBudget() {
 
