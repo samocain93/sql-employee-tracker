@@ -48,6 +48,8 @@ const db = mysql.createConnection(
         }
     ]
 
+    // ----- ADD ROLE PROMPT ----- //
+
     const addRoleQuestion = [
         {
             type: 'input',
@@ -67,6 +69,8 @@ const db = mysql.createConnection(
         },
 
     ]
+
+    // ----- ADD EMPLOYEE PROMPTS ----- //
 
     const addEmployeeQuestion = [
         {
@@ -149,8 +153,16 @@ const db = mysql.createConnection(
 
     function addDepartment() {
         inquirer.prompt(addDepartmentQuestion).then((response) => {
-            db.query('INSERT INTO department (name) VALUES (?)', [response.name], (err) => {
-                viewDepartments();
+            db.query('INSERT INTO department (name) VALUES (?)', [response.name], (err, results) => {
+              if (err) {
+                console.log(err)
+              } else {
+                db.query('SELECT * FROM department', (err, results) => {
+                    if (err) throw (err);
+                    console.table(results);
+                    init();
+                })
+              }
             })
         })
         
