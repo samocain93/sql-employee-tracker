@@ -128,14 +128,6 @@ const db = mysql.createConnection(
                 viewRoles();
             } else if (response.choice === 'Add Role') {
                 addRole();
-            } else if (response.choice === 'Update Employee Manager') {
-                updateEmployeeManager();
-            } else if (response.choice === 'View Employees by Manager') {
-                viewEmployeesByManager();
-            } else if (response.choice === 'View Employees by Department') {
-                viewEmployeesByDepartment();
-            } else if (response.choice === 'View Total Utilized Budget') {
-                viewTotalUtilizedBudget();
             }
         })
     }
@@ -249,51 +241,6 @@ const db = mysql.createConnection(
 
 
         };
-
-
-
-
-
-
-
-
-
-// -----  UPDATE EMPLOYEE MANAGER -----  // 
-
-    function updateEmployeeManager() {
-
-
-
-    }
-
-
-// -----  VIEW EMPLOYEES BY MANAGER -----  // 
-
-    function viewEmployeesByManager() {
-
-    }
-
-
-
-// -----  VIEW EMPLOYEES BY DEPARTMENT -----  // 
-
-    function viewEmployeesByDepartment() {
-
-
-
-    }
-
-
-
-
-// -----  VIEW TOTAL UTILIZED BUDGET -----  // 
-
-    function viewTotalUtilizedBudget() {
-
-
-
-    }
-
 
 
 
