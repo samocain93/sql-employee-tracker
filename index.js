@@ -3,16 +3,16 @@
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 const mysql = require('mysql2');
+const env = require('dotenv')
 
 // ----- CREATE CONNECTION TO DATABASE ----- //
 
 const db = mysql.createConnection(
     {
         host: '127.0.0.1',
-        user: 'root',
-        password: 'GoNole$0533',
-        database: 'employees_db'
-
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME
     })
 
     db.connect((err) => {

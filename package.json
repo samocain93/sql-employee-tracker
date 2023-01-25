@@ -19,6 +19,7 @@
   "homepage": "https://github.com/samocain93/sql-employee-tracker#readme",
   "dependencies": {
     "console.table": "^0.10.0",
+    "env": "^0.0.2",
     "inquirer": "^8.2.4",
     "mysql2": "^3.0.1",
     "nodemon": "^2.0.20"
