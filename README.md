@@ -22,6 +22,7 @@ A command-line application to manage a company's database including Node.js, Inq
 - [Installation](#installation)
 - [Usage](#usage)
 - [Screenshot](#screenshot)
+- [Walkthrough](#walkthrough)
 - [Credits](#credits)
 - [License](#license)
 - [Questions](#questions)
@@ -46,12 +47,22 @@ For more information on Node.js and MySQL, please refer to:
 
 ## Usage  
 
-1. Once the repo has been cloned to your local environment 
+1. Clone the repo to your local environment to test the application
+2. In your terminal or integrated terminal in your code editor, install the necessary dependencies found in the `package.json` file by typing `npm install`
+3. Afterwards, type `node index.js` to start the application
+4. From here, you will be prompted using Inquirer in the terminal from which you can then choose the desired action from the given list of choices
+5. To quit the application at any time, simply press `ctrl + C` and begin again 
 
 
 ## Screenshot
 
-![note taker screenshot](./public/assets/images/note_taker_screenshot.png)
+![command line screenshot](./assets/images/employee_tracker_screenshot.png)
+
+## Walkthrough
+
+[Walkthrough Demo Video]()
+
+
 
 ## Credits
 
