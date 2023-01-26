@@ -34,7 +34,7 @@ const db = mysql.createConnection(
             type: 'list',
             name: 'choice',
             message: "What would you like to do?",
-            choices: ['View All Employees', 'Add Employee', 'Update Employee Role', 'View All Roles', 'Add Role', 'View All Departments', 'Add Department']
+            choices: ['View All Employees', 'Add Employee', 'Update Employee Role', 'View All Roles', 'Add Role', 'View All Departments', 'Add Department', 'View Employees By Manager', 'View Total Utilized Budget']
         }
     ];
 
@@ -133,6 +133,10 @@ const db = mysql.createConnection(
                 viewRoles();
             } else if (response.choice === 'Add Role') {
                 addRole();
+            } else if (response.choice === 'View Employees By Manager') {
+                viewEmployeesByManager();
+            } else if (response.choice === 'View Total Utilized Budget') {
+                viewTotalUtilizedBudget();
             }
         })
     }
@@ -188,6 +192,7 @@ const db = mysql.createConnection(
        
         db.query('SELECT title AS name, id AS value FROM role;', (err, data) => {
             db.query('SELECT CONCAT(first_name, " ", last_name) AS name, id AS value FROM employee', (err, employeeData) => {
+                if (err) throw (err);
                 addEmployeeQuestion[2].choices = data;
                 addEmployeeQuestion[3].choices = employeeData;
                 inquirer.prompt(addEmployeeQuestion).then((response) => {
@@ -214,6 +219,17 @@ const db = mysql.createConnection(
         })
 
     };
+
+
+    // VIEW EMPLOYEES BY MANAGER // 
+
+    function viewEmployeesByManager() {
+        db.query(`SELECT employee.id, employee.first_name, employee.last_name, CONCAT(manager.first_name, ' ', manager.last_name) AS manager, employee.manager_id FROM employee LEFT JOIN employee manager ON employee.manager_id = manager.id WHERE employee.manager_id IS NOT NULL`, (err, data) => {
+            if (err) throw (err);
+            console.table(data);
+            init();
+        })
+    }
 
 
 
@@ -254,6 +270,17 @@ const db = mysql.createConnection(
 
 
         };
+
+
+// VIEW TOTAL UTILIZED BUDGET // 
+
+function viewTotalUtilizedBudget() {
+    db.query(`SELECT department.name, SUM(role.salary) AS budget_utilized FROM department LEFT JOIN role ON department.id = role.department_id GROUP BY department.name`, (err, data) => {
+        if (err) throw (err);
+        console.table(data);
+        init();
+    })
+}
 
 
 
