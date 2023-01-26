@@ -60,7 +60,7 @@ For more information on Node.js and MySQL, please refer to:
 
 ## Walkthrough
 
-[Walkthrough Demo Video]()
+[Walkthrough Demo Video](https://drive.google.com/file/d/151JgOPRuJRk8bJOraRbOwxx_eQOMwlsM/view)
 
 
 
